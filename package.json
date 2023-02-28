@@ -11,6 +11,7 @@
     "@types/node": "16.18.12",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
+    "eslint-config-prettier": "^8.6.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router-dom": "6.8.1",
@@ -24,7 +25,11 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "craco eject"
+    "eject": "craco eject",
+    "husky-prepare": "husky install",
+    "slint-prepare": "yarn add eslint-config-prettier && yarn add -D yarn add -D @typescript-eslint/eslint-plugin",
+    "check-format": "prettier --list-different .",
+    "prettier-format": "prettier --write ."
   },
   "eslintConfig": {
     "extends": [
@@ -46,8 +51,13 @@
   },
   "devDependencies": {
     "@types/styled-components": "5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "add": "^2.0.6",
     "autoprefixer": "10.4.13",
+    "husky": "^8.0.3",
     "postcss": "8.4.21",
-    "tailwindcss": "3.2.4"
+    "prettier": "2.8.4",
+    "tailwindcss": "3.2.4",
+    "yarn": "^1.22.19"
   }
 }
