@@ -1,1 +1,1 @@
-export * from './IExample';
+export * from './IExample'
