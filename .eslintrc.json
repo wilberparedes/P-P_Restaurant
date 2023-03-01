@@ -28,7 +28,7 @@
     "react/style-prop-object": "error",
     "react/jsx-key": 2,
     "react/jsx-curly-spacing": [2, "never"],
-    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "no-console": ["error", { "allow": ["warn", "error", "info"] }],
     "react/prop-types": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-non-null-assertion": "off"

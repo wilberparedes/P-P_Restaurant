@@ -1,41 +1,22 @@
-import { Example } from '@/modules/common/components'
-import { useAppSelector, useAppDispatch } from '@/hooks'
-import { removeToken, saveToken, selectTokenStore } from '@/store/slice/token'
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
+import { ThemeProvider } from 'styled-components'
+
+import { theme } from '@/styles/theme'
+import { GlobalStyle } from '@/styles/global'
+import { persistor, store } from '@/store'
+import Routes from '@/routes'
 
 function App() {
-  const token = useAppSelector(selectTokenStore)
-  const dispatch = useAppDispatch()
-
   return (
-    <div>
-      <h1 className='text-4xl font-bold'>Hello world!</h1>
-      <a href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
-        Learn React {process.env.REACT_APP_API_URL}
-      </a>
-
-      <h2>
-        Token: <strong>{token}</strong>
-      </h2>
-      <h2>NODE_ENV: {process.env.NODE_ENV}</h2>
-      <Example />
-
-      <div className='mt-3'>
-        <button
-          className='bg-red-500	rounded-md text-white mr-5 px-4 py-2'
-          onClick={() =>
-            dispatch(saveToken(`HolaMundo ${new Date().toDateString()}`))
-          }
-        >
-          Add token
-        </button>
-        <button
-          className='border border-red-500 rounded-md text-red-500 px-4 py-2'
-          onClick={() => dispatch(removeToken())}
-        >
-          Remove token
-        </button>
-      </div>
-    </div>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Routes />
+        </ThemeProvider>
+      </PersistGate>
+    </Provider>
   )
 }
 
