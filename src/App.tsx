@@ -1,9 +1,9 @@
 import { Example } from '@/modules/common/components'
 import { useAppSelector, useAppDispatch } from '@/hooks'
-import { removeToken, saveToken } from '@/store/slice/token'
+import { removeToken, saveToken, selectTokenStore } from '@/store/slice/token'
 
 function App() {
-  const token = useAppSelector((state) => state.token.token)
+  const token = useAppSelector(selectTokenStore)
   const dispatch = useAppDispatch()
 
   return (
@@ -13,7 +13,10 @@ function App() {
         Learn React {process.env.REACT_APP_API_URL}
       </a>
 
-      <h2>Token: {token}</h2>
+      <h2>
+        Token: <strong>{token}</strong>
+      </h2>
+      <h2>NODE_ENV: {process.env.NODE_ENV}</h2>
       <Example />
 
       <div className='mt-3'>
