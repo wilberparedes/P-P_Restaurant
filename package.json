@@ -32,7 +32,7 @@
     "test": "craco test",
     "eject": "craco eject",
     "husky-prepare": "husky install",
-    "slint-prepare": "yarn add eslint-config-prettier && yarn add -D yarn add -D @typescript-eslint/eslint-plugin",
+    "slint-prepare": "yarn add eslint-config-prettier && yarn add -D @typescript-eslint/eslint-plugin",
     "check-format": "prettier --list-different .",
     "prettier-format": "prettier --write ."
   },
