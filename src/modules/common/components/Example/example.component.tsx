@@ -1,5 +1,9 @@
+import { useAppSelector } from '@/hooks'
+
 import { ExampleContainer } from './example.style'
 
 export const Example = () => {
-  return <ExampleContainer>Example</ExampleContainer>
+  const token = useAppSelector((state) => state.token.token)
+
+  return <ExampleContainer>Example: {token}</ExampleContainer>
 }
