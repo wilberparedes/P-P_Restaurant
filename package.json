@@ -13,8 +13,13 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "18.0.10",
     "eslint-config-prettier": "^8.6.0",
+    "formik": "^2.2.9",
+    "framer-motion": "^10.10.0",
+    "icomoon-react": "^3.0.0",
+    "libphonenumber-js": "^1.10.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.43.7",
     "react-redux": "^8.0.5",
     "react-router-dom": "6.8.1",
     "react-scripts": "5.0.1",
@@ -55,6 +60,8 @@
     ]
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/google-libphonenumber": "^7.4.23",
     "@types/react-redux": "^7.1.25",
     "@types/redux-thunk": "^2.1.0",
     "@types/styled-components": "5.1.26",
