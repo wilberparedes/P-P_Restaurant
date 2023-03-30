@@ -1,3 +1,5 @@
 export * from './useAppDispatch'
 export * from './useAppSelector'
+export * from './useEscape'
 export * from './useExample'
+export * from './useModal'
