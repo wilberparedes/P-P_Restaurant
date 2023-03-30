@@ -27,6 +27,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-camera:before {
+  content: '\e909';
+}
 .icon-calendar:before {
   content: '\e908';
 }
