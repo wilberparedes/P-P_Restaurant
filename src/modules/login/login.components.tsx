@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 
-import { useAppDispatch } from '@/hooks'
-import { Input, Button } from '@/modules/common/components'
+import { useAppDispatch, useModal } from '@/hooks'
+import { Input, Button, ModalInvalidRequest } from '@/modules/common/components'
 import { saveToken } from '@/store/slice/token'
 
 import {
@@ -27,6 +27,7 @@ export const Login = () => {
   } = useForm<FormData>({
     mode: 'all',
   })
+  const { isModalVisible, toggleModal } = useModal(false)
 
   const onSubmit = handleSubmit((data) => {
     console.info('Form submitted. Data:', data, 'Submit form - errors', Error)
@@ -38,7 +39,7 @@ export const Login = () => {
       <ImageLoginLeft />
 
       <ContainerDivRight>
-        <ContainerLogo>
+        <ContainerLogo onClick={toggleModal}>
           <Logo src={'/images/logo-primary.svg'} alt='Logo Pide & Pasa' />
           <PideyPasaText
             src={'/images/pide-y-pasa-text.svg'}
@@ -85,6 +86,11 @@ export const Login = () => {
           </form>
         </ContainerDivForm>
       </ContainerDivRight>
+
+      <ModalInvalidRequest
+        isVisible={isModalVisible}
+        toggleModal={toggleModal}
+      />
     </ContainerPage>
   )
 }
