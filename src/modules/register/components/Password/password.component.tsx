@@ -6,6 +6,7 @@ import { Button, Input, Text } from '@/modules/common/components/'
 
 import { DivForm, DivInput, Form, IconPassword } from '../../register.style'
 import { FormData } from './password.interface'
+import { validations } from '@/modules/common/utils'
 
 export const Password = () => {
   const navigate = useNavigate()
@@ -43,6 +44,9 @@ export const Password = () => {
               rules={{
                 required: '*Este campo es requerido',
                 minLength: { value: 8, message: 'Mínimo 8 caracteres' },
+                validate: {
+                  minLetterNum: validations.hasLetterAndNumber,
+                },
               }}
               error={Boolean(errors.password)}
               helperText={errors.password?.message}

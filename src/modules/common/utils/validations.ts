@@ -23,6 +23,17 @@ export const isOnlyNumber = (number: string): string | undefined => {
   return onlyNumbers(number) ? undefined : 'Ingrese solo números'
 }
 
+export const hasLetterAndNumber = (text: string): string | undefined => {
+  const expresión_regular = new RegExp(
+    '^(?=(?:.*[a-z]){1})(?=(?:.*(\\d))){1}',
+    'g'
+  )
+  const match = String(text).match(expresión_regular)
+  return !match
+    ? 'La contraseña debe tener mínimo una letra y mínimo un número'
+    : undefined
+}
+
 export const isValidNumberCellPhone = (
   phone: string,
   code: string
