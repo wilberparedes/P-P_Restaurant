@@ -81,3 +81,31 @@ ml-4
 ${(p) => (p.$error ? 'text-primary-500' : 'text-text')}
 text-sm
 `
+
+export const IconCamera = tw.i<any>`
+icon-camera
+text-4xl
+text-text
+`
+
+export const BoxFile = tw.div<any>`
+cursor-pointer
+bg-gray-50
+w-24
+h-24
+flex
+items-center
+justify-center
+rounded-full
+overflow-hidden
+`
+
+export const ImgPreview = tw.img<any>`
+h-auto
+w-full
+`
+
+export const FlexCenter = tw.div<any>`
+flex
+justify-center
+`

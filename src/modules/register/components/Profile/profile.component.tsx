@@ -35,6 +35,18 @@ export const Profile = () => {
           <Text weight='font-bold' size='text-2xl' className='text-center'>
             Datos personales
           </Text>
+
+          <Input
+            control={control}
+            name='photo'
+            type='file'
+            accept='image/*'
+            rules={{
+              required: '*Completar la información',
+            }}
+            error={Boolean(errors.photo)}
+            helperText={errors.photo?.message}
+          />
           <DivInput>
             <Input
               control={control}

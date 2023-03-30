@@ -3,4 +3,5 @@ export enum InputTypes {
   PASSWORD = 'password',
   DATE = 'date',
   SELECT = 'select',
+  FILE = 'file',
 }

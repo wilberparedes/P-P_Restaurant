@@ -5,7 +5,13 @@ import { Controller } from 'react-hook-form'
 import { InputTypes } from '@/modules/common/constants'
 
 import { InputProps } from './input.props'
-import { HelperText } from './input.style'
+import {
+  BoxFile,
+  FlexCenter,
+  HelperText,
+  IconCamera,
+  ImgPreview,
+} from './input.style'
 import {
   Divider,
   DivRelative,
@@ -42,6 +48,10 @@ export const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
         defaultValue={defaultValue}
         render={({ field }) => {
           const [isFocus, setIsFocus] = useState<boolean>(false)
+          const [imgData, setImgData] = useState<string | ArrayBuffer | null>(
+            null
+          )
+
           const onBlur = () => {
             if (field.onBlur) {
               field?.onBlur()
@@ -51,6 +61,18 @@ export const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
           const onFocus = () => {
             setIsFocus(true)
           }
+
+          const onChangePicture = (e: any) => {
+            field.onChange(e)
+            if (e.target.files[0]) {
+              const reader = new FileReader()
+              reader.addEventListener('load', () => {
+                setImgData(reader.result)
+              })
+              reader.readAsDataURL(e.target.files[0])
+            }
+          }
+
           return (
             <Label>
               {label ? (
@@ -70,6 +92,24 @@ export const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
                       </option>
                     ))}
                   </InputSelectStyled>
+                ) : props.type === InputTypes.FILE ? (
+                  <FlexCenter>
+                    <BoxFile>
+                      {field?.value ? (
+                        <ImgPreview src={imgData!} alt={field.name} />
+                      ) : (
+                        <IconCamera />
+                      )}
+                    </BoxFile>
+                    <InputStyled
+                      {...field}
+                      {...props}
+                      type={props.type}
+                      ref={ref}
+                      className='hidden'
+                      onChange={onChangePicture}
+                    />
+                  </FlexCenter>
                 ) : (
                   <InputStyled
                     {...field}

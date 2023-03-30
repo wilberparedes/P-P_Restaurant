@@ -4,4 +4,5 @@ export type FormData = {
   typeIdentifier: string
   identifier: string
   dateOfBirth: string
+  photo: string
 }
