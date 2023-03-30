@@ -93,7 +93,7 @@ export const InputCellPhone: FC<InputCellPhoneProps> = forwardRef<
               </DivInputs>
 
               {Boolean(helperText) && error && (
-                <HelperText>{helperText}</HelperText>
+                <HelperText $error={error}>{helperText}</HelperText>
               )}
             </Label>
           )

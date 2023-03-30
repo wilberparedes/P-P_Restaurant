@@ -1,5 +1,6 @@
 import { useAppSelector } from '@/hooks'
 import { selectTokenStore } from '@/store/slice/token'
+import { useNavigate } from 'react-router-dom'
 
 import {
   IconFacebook,
@@ -13,10 +14,11 @@ import {
 } from './navbar.style'
 
 export const NavBar = () => {
+  const navigate = useNavigate()
   const token = useAppSelector(selectTokenStore)
   return (
     <NavbarContainer>
-      <LogoContainer>
+      <LogoContainer onClick={() => navigate('/', { replace: true })}>
         <LogoPideyPasa src={'/images/logo-white.svg'} alt='Logo pide y Pasa' />
         <TextPideyPasa src={'/images/pide-pasa-text-white.svg'} alt='Logo' />
       </LogoContainer>
