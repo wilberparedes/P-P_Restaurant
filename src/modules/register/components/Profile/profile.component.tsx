@@ -69,6 +69,7 @@ export const Profile = () => {
               rules={{
                 required: '*Completar la información',
               }}
+              defaultValue={'cc'}
               error={Boolean(errors.typeIdentifier)}
               helperText={errors.typeIdentifier?.message}
               options={[
