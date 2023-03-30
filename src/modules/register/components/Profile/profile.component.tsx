@@ -100,7 +100,7 @@ export const Profile = () => {
               control={control}
               name='identifier'
               label='Número de identificación'
-              type='number'
+              type='text'
               rules={{
                 required: '*Completar la información',
                 minLength: { value: 6, message: 'Mínimo 6 caracteres' },
